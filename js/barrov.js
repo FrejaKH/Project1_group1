@@ -9,12 +9,12 @@ let diceDivs = [];
 let dice = [];
 const NOOFDICE = 5;
 let score = [0,0,0];
-let spiller = 1;
+let player = 1;
 
 
 function init () {
     for (let i = 0; i < NOOFDICE; i++) {
-        // Variable deklareres ud fra Id'erne på de 5 terninger fra html
+        // Variable deklareres ud fra id'erne på de 5 terninger fra html
         let dicei = document.getElementById("dice"+(i+1));
         // Hver html-terning bliver skubbet ind i det tomme array (diceDivs);
         diceDivs.push(dicei);
@@ -56,10 +56,13 @@ function lockDice (e) {
 */
 
  function getPoints () {
-        // Tjek for 2 og 5, hvis forekommer så return
-    let var1 = false;    
+    // Variabel som skal bruges senere til at return ud af loop    
+    let var1 = false;
+    // For loop som looper igennem alle terninger    
     for (let die of dice) {
+        // If statement som siger, at hvis en terning ikke er 'locked', så skal den køre næste kode
         if (!die.locked) {
+            // If statement som siger, at hvis værdien af terningen er lig 2 eller 5, så skal terningen låses (med metoden lock()) og gøres rød
             if (die.value === 2 || die.value === 5) {
                 die.lock();
                 diceDivs[die.snr].style.backgroundColor = "red";
@@ -67,13 +70,16 @@ function lockDice (e) {
             }
         }
     }
+    // If statement som siger, at hvis var1 = true, så skal den return/slutte
     if (var1) {
         // Hvis alle er røde, så remove eventlistener aktiv spiller, add eventlistener til inaktiv spiller, skift spillernummer
         return;
-    }    
+    }
+    // for loop som looper igennem alle terninger    
     for (let die of dice) {
+        // if statement som siger at hvis terningen ikke er 'locked', så skal værdien af terningen lægges til score
         if (!die.locked) {
-            score[spiller] += die.value;
+            score[player] += die.value;
         }
     }
 
