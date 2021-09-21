@@ -1,0 +1,44 @@
+
+#main {
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:600px;
+    display: flex;
+    align-items:center;
+    flex-direction:column;
+}
+
+#points, #players {
+    width:100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+#pointPlayer1, #pointPlayer2, #players p {
+    margin:0 200px;
+}
+
+#dices {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.dice {
+    width:80px;
+    height:80px;
+    border:1px solid #000000;
+    display:inline-block;
+    margin:20px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 30px;
+}
+
+#btn1, #btn2 {
+    margin:50px;
+}
