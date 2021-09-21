@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Game: Bar Røv</title>
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/barrov.css" rel="stylesheet">
+    </head>
+    <body>
+        <header id="header">
+            <div id="group">
+                <p>Gruppe 1</p>
+            </div>
+            <nav id="menu">
+                <ul>
+                    <li><a href="index.html">Forside</a></li>
+                    <li><a href="barrov.html">Bar Røv</a></li>
+                    <li><a href="hangman.html">Hangman</a></li>
+                    <li><a href="guessanumber.html">Gæt et tal</a></li>
+                    <li><a href="vendespil.html">Vendespil</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="main">
+
+            <h1>Game: Bar Røv</h1>
+
+            <div id="players">
+                <p>Player 1</p>
+                <p>Player 2</p>
+            </div>
+
+            <div id="points">
+                <div id="pointPlayer1">
+                    0
+                </div>
+                <div id="pointPlayer2">
+                    0
+                </div>
+            </div>
+
+            <div id="dices">
+                <div id="dice1" class="dice"></div>
+                <div id="dice2" class="dice"></div>
+                <div id="dice3" class="dice"></div>
+                <div id="dice4" class="dice"></div>
+                <div id="dice5" class="dice"></div>
+            </div>
+
+            <div id ="buttons">
+                <button id="btn1">Player 1: roll</button>
+                <button id="btn2">Player 2: roll</button>
+            </div>
+        </div>
+
+        <script src="js/die.js"></script>
+        <script src="js/barrov.js"></script>
+    </body>
+</html>
