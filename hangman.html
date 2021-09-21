@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Hangman</title>
+</head>
+<body>
+
+<header id="header">
+    <div id="group">
+        <p>Gruppe 1</p>
+    </div>
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="barrov.html">Bar Røv</a></li>
+            <li><a href="hangman.html">Hangman</a></li>
+            <li><a href="guessanumber.html">Gæt et tal</a></li>
+            <li><a href="vendespil.html">Vendespil</a></li>
+        </ul>
+    </nav>
+</header>
+  
+<main class='hangman_main'>
+  <h1>Hangman</h1>
+    <div class="hangman_content">
+      <div id="current-word"></div>
+      <div>Guesses Remaining: <span id="guesses-left">6</span></div>
+      <div>Wrong Guesses: <span id="wrong-guesses">0</span></div>
+    </div>
+</main>
+
+<script src='js/hangman.js'></script>
+</body>
+</html>
+
+
+
