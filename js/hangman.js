@@ -9,6 +9,7 @@ let selectedWord = "";
 //Variable to store number of underscores in the given word
 let underscore = 0;
 //Variable to hold the split out letters of the word 
+
 let letters = [];
 //Variable to store underscores with the correct letters
 let underscoreCorrect = [];
@@ -16,6 +17,10 @@ let underscoreCorrect = [];
 let wrongGuess = [];
 //Variable to keep track of guesses remaining
 let guessesRemaining = 6;
+
+//Saved in localstorage
+let wins = 0;
+let losses = 0;
 
 //Chooses a random word from the wordlist
 function game() {
@@ -26,7 +31,7 @@ function game() {
     underscore = selectedWord.length;
     for (let i = 0; i < underscore; i++) {
         underscoreCorrect.push("_");
-        document.getElementById("current-word").innerHTML = " " + underscoreCorrect.join(" ");
+        document.getElementById("current-word").innerHTML = " " + underscoreCorrect.join(" "); 
     }
 };
 
@@ -66,10 +71,14 @@ function compareLetters(letter) {
 function completeGame() {
     //When the underscores are filled you win
     if (letters.toString() == underscoreCorrect.toString()) {
+        wins++;
+        localStorage.setItem('wins', wins);
         alert("You win! " + selectedWord.toLocaleUpperCase() + " is the word!")
         reset();
     //When the number of guesses reaches 0 you lose
     } else if (guessesRemaining === 0) {
+        losses++;
+        localStorage.setItem('losses', losses);
         alert("You lost! " + selectedWord.toLocaleUpperCase() + " was the word!")
         reset();
     }
