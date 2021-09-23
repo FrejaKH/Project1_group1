@@ -18,7 +18,7 @@ function init () {
         let dicei = document.getElementById("dice"+(i+1));
         // Hver html-terning bliver skubbet ind i det tomme array (diceDivs);
         diceDivs.push(dicei);
-        // dicei.addEventListener('click', lockDice);
+        // dicei.addEventListener('click', lockDice); // Kode til klik-versionen
         // Nyt array bliver lavet (med 5 stykker), som fortæller at typen er en terning (pga. 6-tallet);
         let d = new Die(i, 6);
         dice.push(d);
@@ -32,6 +32,7 @@ function start () {
 }
 
 function rollDices () {
+    // for loop som looper igennem alle terninger  
     for (let die of dice) {
         // If statement som siger, at hvis en terning ikke har status "locked", så skal den køre metoden "roll()" (Som generere et nyt tal mellem 1 og 6)
         if (!die.locked) {
@@ -76,13 +77,14 @@ function lockDice (e) {
     // If statement som siger, at hvis var1 = true, så skal den return/slutte
     if (var1) {
         // Hvis alle er røde/'locked', så remove eventlistener aktiv spiller, add eventlistener til inaktiv spiller, skift spillernummer
+        // If statement som siger, at hvis alle terningerne i arrayet er 'locked' - nyere metode som især kan bruges til større arrays
         if (dice.every(isLocked)) {
-            // if (dice[0].locked && dice[1].locked && dice[2].locked && dice[3].locked && dice[4].locked) {
+        // if (dice[0].locked && dice[1].locked && dice[2].locked && dice[3].locked && dice[4].locked) { - denne metode virker også, men er ikke god til større arrays
             
             for (let die of dice) { 
                 die.unlock();
             }
-
+            // If statement som siger, at hvis player = 1, så skal den skifte til player 2 og henholdvis fjerne/tilføje eventlistener
             if (player === 1) {
                 player = 2;
                 btn1.removeEventListener('click', start);
@@ -96,6 +98,7 @@ function lockDice (e) {
         }
         return;
     }
+    // Funktion til at teste om alle terningerne i arrayet er 'locked'
     function isLocked (die) {
         return die.locked;
     }
@@ -111,10 +114,11 @@ function lockDice (e) {
 }
 
 function winning () {
+    // If statement som siger, at hvis player 1's score er større end eller lig med 100, så skal den give en besked
     if (score[1] >= 100) {
         alert("Congratulations Player 1 - You are the winner")
     }
-
+    // If statement som siger, at hvis player 2's score er større end eller lig med 100, så skal den give en besked
     if (score[2] >= 100) {
         alert("Congratulations Player 2 - You are the winner")
     }
