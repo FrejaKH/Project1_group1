@@ -10,19 +10,6 @@ class Die {
         this.roll();
     }
 
-    draw(where) {
-        let d = document.createElement("div");
-        d.setAttribute("class", "die");
-        d.setAttribute("id", "die" + this.snr);
-        if (this.locked) {
-            d.style.backgroundColor = "yellow";
-        }
-        let t = document.createTextNode(this.value);
-        d.appendChild(t);
-        d.addEventListener('click', lockFlipFlop);
-        $(where).appendChild(d);
-    }
-
     roll() {
         this.value = Math.floor(Math.random() * this.type) + 1;
     }

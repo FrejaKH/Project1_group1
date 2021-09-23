@@ -24,25 +24,28 @@ function init () {
         dice.push(d);
     }
 }
+
 function start () {
     rollDices();
     getPoints();
+    winning();
 }
 
 function rollDices () {
-    
     for (let die of dice) {
         // If statement som siger, at hvis en terning ikke har status "locked", så skal den køre metoden "roll()" (Som generere et nyt tal mellem 1 og 6)
         if (!die.locked) {
             die.roll();
+            diceDivs[die.snr].style.backgroundColor = "white";
         }
     }
     // For loop som sætter værdien af det ene array ind i det andet array, som kan ses i browseren
     for (let i = 0; i < NOOFDICE; i++) {
-
         diceDivs[i].innerHTML = dice[i].value;
     }
 }
+
+// Kode til at låse terningerne ved klik
 /*      
 function lockDice (e) {
     let i = e.target.id.slice(-1);
@@ -72,8 +75,29 @@ function lockDice (e) {
     }
     // If statement som siger, at hvis var1 = true, så skal den return/slutte
     if (var1) {
-        // Hvis alle er røde, så remove eventlistener aktiv spiller, add eventlistener til inaktiv spiller, skift spillernummer
+        // Hvis alle er røde/'locked', så remove eventlistener aktiv spiller, add eventlistener til inaktiv spiller, skift spillernummer
+        if (dice.every(isLocked)) {
+            // if (dice[0].locked && dice[1].locked && dice[2].locked && dice[3].locked && dice[4].locked) {
+            
+            for (let die of dice) { 
+                die.unlock();
+            }
+
+            if (player === 1) {
+                player = 2;
+                btn1.removeEventListener('click', start);
+                btn2.addEventListener('click', start);
+            
+            } else {
+                player = 1;
+                btn1.addEventListener('click', start);
+                btn2.removeEventListener('click', start);
+            }
+        }
         return;
+    }
+    function isLocked (die) {
+        return die.locked;
     }
     // for loop som looper igennem alle terninger    
     for (let die of dice) {
@@ -82,11 +106,21 @@ function lockDice (e) {
             score[player] += die.value;
         }
     }
-
     pointPlayer1.innerHTML = score[1];
     pointPlayer2.innerHTML = score[2];
-    
 }
+
+function winning () {
+    if (score[1] >= 100) {
+        alert("Congratulations Player 1 - You are the winner")
+    }
+
+    if (score[2] >= 100) {
+        alert("Congratulations Player 2 - You are the winner")
+    }
+}
+
 
 btn1.addEventListener('click', start);
 window.addEventListener('load', init);
+
