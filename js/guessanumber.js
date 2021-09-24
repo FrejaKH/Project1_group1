@@ -4,21 +4,22 @@ const guessImport = document.getElementById("guessImport");
 
 // Count of guesses
 var guess = 0;
+let start = new Date();
 
 //Using one function to complete the process of counting and checking if the number is bigger, smaller or correct
 document.getElementById("submitguess").onclick = function () {
   //Variable for managing time
-  let start = new Date();
+  //let start = new Date();
 
   //Check if your tries are above 10, if it is, the game is lost
   //Uses stop and elapsed variables to figure out the time elapsed from start to finish
   if (guess == 10) {
-    alert(
-      "You have not guessed correctly in 10 turns, and lost the game. Reload to try again !"
-    );
     let stop = new Date();
     let elapsed = stop - start;
     document.getElementById("timeImport").innerHTML = elapsed;
+    alert(
+      "You have not guessed correctly in 10 turns, and lost the game. Reload to try again !"
+    );
     return;
   }
 
@@ -39,3 +40,4 @@ document.getElementById("submitguess").onclick = function () {
   }
   guessImport.innerHTML = guess;
 };
+
