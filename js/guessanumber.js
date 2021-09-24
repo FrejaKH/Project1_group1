@@ -1,15 +1,12 @@
 // Generate the random number between 1 and 1000
-var randomNumber = Math.floor(Math.random() * 1000 + 1);
-const guessImport = document.getElementById("guessImport");
+let randomNumber = Math.floor(Math.random() * 1000 + 1);
 
 // Count of guesses
-var guess = 0;
+let guess = 0;
 let start = new Date();
 
 //Using one function to complete the process of counting and checking if the number is bigger, smaller or correct
 document.getElementById("submitguess").onclick = function () {
-  //Variable for managing time
-  //let start = new Date();
 
   //Check if your tries are above 10, if it is, the game is lost
   //Uses stop and elapsed variables to figure out the time elapsed from start to finish
@@ -24,7 +21,7 @@ document.getElementById("submitguess").onclick = function () {
   }
 
   // Number guessed by user
-  var guessNumber = document.getElementById("guessField").value;
+  let guessNumber = document.getElementById("guessField").value;
 
   //If you guess correctly !
   if (guessNumber == randomNumber) {
@@ -38,6 +35,6 @@ document.getElementById("submitguess").onclick = function () {
     guess++;
     alert("Incorrect, try going bigger.");
   }
-  guessImport.innerHTML = guess;
+  document.getElementById("guessImport").innerHTML = guess;
 };
 
