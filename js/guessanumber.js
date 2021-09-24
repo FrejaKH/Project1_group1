@@ -12,7 +12,7 @@ document.getElementById("submitguess").onclick = function () {
   //Uses stop and elapsed variables to figure out the time elapsed from start to finish
   if (guess == 10) {
     let stop = new Date();
-    let elapsed = stop - start;
+    let elapsed = (stop - start) / 1000 + " Seconds";
     document.getElementById("timeImport").innerHTML = elapsed;
     alert(
       "You have not guessed correctly in 10 turns, and lost the game. Reload to try again !"
