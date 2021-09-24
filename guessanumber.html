@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Guess a number</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header id="header">
+      <div id="group">
+        <p>Gruppe 1</p>
+      </div>
+      <nav id="menu">
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="barrov.html">Bar Røv</a></li>
+          <li><a href="hangman.html">Hangman</a></li>
+          <li><a href="guessanumber.html">Gæt et tal</a></li>
+          <li><a href="vendespil.html">Vendespil</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="guessWrap">
+      <h1>Guess a Number</h1>
+      <p>
+        A number between 1 to 1000 has been generated, try guessing which number
+        it is.
+      </p>
+
+      <div class="form">
+        <label for="guessField">Enter your guess: </label>
+        <input type="text" id="guessField" class="guessField" required />
+        <input
+          type="submit"
+          value="go"
+          class="guessSubmit"
+          id="submitguess"
+          required
+        />
+      </div>
+      <p>Number of guesses:</p>
+      <div id="guessImport">0</div>
+      <p>Time elapsed:</p>
+      <div id="timeImport"></div>
+    </div>
+    <script src="js/guessanumber.js"></script>
+  </body>
+</html>
