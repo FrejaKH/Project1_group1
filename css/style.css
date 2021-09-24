@@ -80,13 +80,7 @@ a{
     align-items: center;
 }
 
-#guessFlex {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #guessWrap {
-    width:80% ;
-    margin: auto auto;
+    width:80%;
+    margin: 0 auto;
 }
